@@ -1,16 +1,6 @@
 spring:
-  datasource: #연결할 디비의 이름
-    driver-class-name: org.mariadb.jdbc.Driver #디비 종류
-    url: jdbc:mariadb://localhost:3306/CapstoneDesign?rewriteBatchedStatements=true
-    username: "CapstoneDesign"
-    password: "!Q@W#E$R"
-  jpa: #jpa 종류
-    hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-        format_sql: true #이쁘게 해줌
-logging.level:
-  root: info
-  org.hibernate.SQL: info #콘솔에 남기는게 아니라 로그로 남음.
-  org.hibernate.type: info #바인딩된 파라미터까지 볼 수 있
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
